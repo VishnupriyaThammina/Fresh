@@ -1,0 +1,30 @@
+/* styles.module.css */
+.bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+border:2px solid black;
+
+  }
+  
+ .grid1{
+    background-color:#DBE4C6;
+    height:100%;
+    display: flex;
+    justify-content:center;
+   align-items:center;
+   border-radius:20px;
+
+ }
+  
+  .form {
+    background-color:#DBE4C6;
+   
+    width:100%;
+    heigth:100%;
+  
+   border:2px solid black;
+display:flex;
+
+  }
+  

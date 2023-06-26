@@ -1,0 +1,14 @@
+.homepage {
+    text-align: center;
+  }
+  
+  .homepage h1 {
+    font-size: 24px;
+    color: red;
+  }
+  
+  .homepage p {
+    font-size: 16px;
+    color: #666;
+  }
+  
