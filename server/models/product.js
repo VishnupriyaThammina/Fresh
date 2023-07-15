@@ -1,13 +1,24 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
+const Schema = mongoose.Schema;
 
-// const ProductSchema = new mongoose.Schema({
-//   name: String,
-//   id:String,
-//   cost:String,
-//   description:String,
-// },{collection:"Products"});
+const productSchema = new Schema({
+    title: {
+        type : String,
+        required : true //forcing data to have a title because it is flexible 
+    },
+    price:{
+        typr : Number,
+        required: true
+    },
+    description:{
+        type: String,
+        required : true
+    },
+    image:{
+        type: String,
+        required: true
+    }
+});
 
-// const Product = mongoose.model('Product', ProductSchema);
-
-// module.exports = Product;
+module.exports = mongoose.model('products', productSchema);

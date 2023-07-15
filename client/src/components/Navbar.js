@@ -123,12 +123,12 @@ export default function Navbar() {
 
   return (
     <div className={classes.navbar} ref={navbarRef}>
-    <AppBar position="static" style={{backgroundColor:"#B1C1AC"}} component={Link} to="/">
+    <AppBar position="static" style={{backgroundColor:"#FEFBF6"}} >
       {/* Use "to='/'" to navigate to the home page */}
       <Toolbar>
       <>
       <IconButton color="white" aria-label="menu"  onClick={handleDrawerOpen}>
-        <MenuIcon /> <Typography variant="body1"> Menu </Typography>
+        <MenuIcon /> 
       </IconButton>
       <Drawer
         className={classes.drawer}
@@ -168,8 +168,11 @@ export default function Navbar() {
           ))}
         </List>
       </Drawer>
+    <Typography variant="body1" style={{color:"black"}}> Menu </Typography>
+
     </>
       </Toolbar>
+
     </AppBar>
   </div>
   );
