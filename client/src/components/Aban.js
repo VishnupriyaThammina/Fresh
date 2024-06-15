@@ -1,19 +1,27 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    position: 'relative',
-    marginBottom: theme.spacing(2),
-    width: '100%', // Set the width to 100% of the viewport width
-    backgroundSize: '100% auto', // Adjust the background size
   
+  wraper:{
+height:"60vh",
+width:"100vh"
+  }
+  ,root: {
+    position: 'center',
+    marginBottom: theme.spacing(2),
+    width: '90%', // Set the width to 100% of the viewport width
+    backgroundSize: '100% auto', // Adjust the background size
+    height:"90vh"
   },
   image: {
     width: '100%',
     height: 500,
+    borderRadius: "1.5vh",
     objectFit: 'cover',
+filter: 'brightness(80%) contrast(100%) grayscale(40%)',
     [theme.breakpoints.down('sm')]: {
       height: '100%',
       objectPosition: 'center', // Center the image vertically
@@ -61,7 +69,8 @@ const Aban = ({ url,title,description }) => {
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.root} alignItems='center'>
+    <Grid container display="flex" style={{ alignItems:'center', justifyContent:'center'}}  className='wraper' >
+    <Grid item container className={classes.root}  display="flex" alignItems='center' justifyContent='center' >
       <Grid item xs={12} sm={12}>
         <img src={url} alt="Background" className={classes.image} />
       </Grid>
@@ -76,12 +85,13 @@ const Aban = ({ url,title,description }) => {
         {description}   </Typography>
        </Grid>
        <Grid item>
-        <Button variant="contained" className={classes.button} >
+       <Link to="/shop" >    <Button variant="contained" className={classes.button} >
           SHOP ALL
-        </Button>
+        </Button> </Link> 
         </Grid>
       
       </Grid>
+    </Grid>
     </Grid>
   );
 };

@@ -1,46 +1,12 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
 import { Grid, TextField, Button } from '@mui/material';
 import login from "../images/login.jpg"
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import registerValidate from './registerValidate'; // Update the import path
 
 const DesktopRegister = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
-
-  const [errors, setErrors] = useState({});
-
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formErrors = registerValidate(formData);
-
-    if (Object.keys(formErrors).length > 0) {
-      setErrors(formErrors);
-    } else {
-      try {
-        const response = await axios.post('http://localhost:5000/register', formData);
-        console.log(response);
-        if (response.status === 201) {
-          navigate('/login');
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
+ 
 
   return (
     <>
@@ -49,7 +15,7 @@ const DesktopRegister = () => {
           <Grid item container sx={{ backgroundColor: "#cedbd0", width: "80%", height: "80%", borderRadius: "20px" }}>
             <Grid item container sx={{ width: "50%", display: "flex", justifyContent: "center", alignItems: "center" }}>
               <Grid item>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={(e)=>{e.preventDefault()}}>
                 <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center">
   <Grid item textAlign="center" >
                       <h2 sx={{color: "#434d43"}} >Create Account</h2>
@@ -61,9 +27,7 @@ const DesktopRegister = () => {
                         variant="filled"
                         id="name"
                         name="name"
-  error={!!errors.name}
-  helperText={errors.name}
-                        onChange={handleChange}
+
                         style={{ marginTop: 11 }}
                         InputProps={{ disableUnderline: true }}
                       /></Grid>
@@ -75,9 +39,8 @@ const DesktopRegister = () => {
                         id="email"
                         type="email"
                         name="email"
-                        error={!!errors.email}
-                        helperText={errors.email}
-                        onChange={handleChange}
+                        
+                       
                         style={{ marginTop: 11 }}
                         InputProps={{ disableUnderline: true }}
                       />
@@ -89,9 +52,7 @@ const DesktopRegister = () => {
                         id="password"
                         type="password"
                         name="password"
-                        error={!!errors.password}
-  helperText={errors.password}
-                        onChange={handleChange}
+                       
                         style={{ marginTop: 11 }}
                         InputProps={{ disableUnderline: true }}
                       />

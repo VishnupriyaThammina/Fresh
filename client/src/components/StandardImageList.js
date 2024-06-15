@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,7 +79,7 @@ const StandardImageList = () => {
             </Typography>
             <br />
             <Grid item style={{ textAlign: 'center' }}>
-              <Button className={classes.button1}>Shop All</Button>
+           <Link to="/shop" >    <Button className={classes.button1}  >Shop All</Button> </Link>
             </Grid>
           </Grid>
         </Grid>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
+import { Typography,Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
 
 const Cart = () => {
   // Sample cart data
@@ -16,11 +16,13 @@ const Cart = () => {
 
   return (
     <div>
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h4" align="center" gutterBottom style={{padding:"2vh"}}>
         Shopping Cart
       </Typography>
+<Grid container item display="flex" style={{width:"100%",justifyContent:"center",alignItems:"center"}} >
+<Grid item style={{width:"90%"}}>
 
-      <TableContainer component={Paper}>
+      <TableContainer  component={Paper} >
         <Table>
           <TableHead>
             <TableRow>
@@ -43,10 +45,14 @@ const Cart = () => {
           </TableBody>
         </Table>
       </TableContainer>
-
-      <Button variant="contained" color="primary" className="checkout-btn">
+</Grid>  
+</Grid>
+<Grid display="flex" style={{width:"95%",justifyContent:"right",padding:"2vh",alignItems:"center"}}>
+<Button variant="contained" style={{backgroundColor:"black",color:"white"}}className="checkout-btn">
         Checkout
       </Button>
+</Grid>
+      
     </div>
   );
 };

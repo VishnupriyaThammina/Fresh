@@ -1,12 +1,9 @@
 import React from 'react';
-import styles from '../styles/Homepage.module.css';
-import ReactDOM from 'react-dom';  
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader  
 import CarouselElement from './CarouselElement'; 
-import { Paper, Button } from '@mui/material'
 import StandardImageList from '../components/StandardImageList';
 import ThreeImagesStack from '../components/ThreeImagesStack';
 import Aban from '../components/Aban';
+// import Navv from '../components/nav/Navba.js'
 const HomePage = () => {
   const images = [
     { url: '/images/glossbg.jpg', title: 'Lip Care',text:"Try out our efficacious Lip Care essentials" },
@@ -57,7 +54,7 @@ const HomePage = () => {
       buttonText: 'shop now',
     },
     {
-      src: '/images/shimmeroil.jpg',
+      src: '/images/pinkwater.jpg',
       alt: 'Image 1',
       text: 'Serums',
       buttonLink: '/path/to/button1',
@@ -66,18 +63,20 @@ const HomePage = () => {
   
     // Add more image objects here
   ];
-  const imgbaner1=[{
-    url:'/images/badypos.jpg',
-    description:" Immerse yourself in our ethereal haven, where self-care is an exquisite art. Discover Shop All's captivating collection of soul-nurturing treasures for your blissful well-being.",
-    title:"LOVING YOURSELF MULTIPLIES FROM HERE",
-  },];
+  // const imgbaner1=[{
+  //   url:'/images/badypos.jpg',
+  //   description:" Immerse yourself in our ethereal haven, where self-care is an exquisite art. Discover Shop All's captivating collection of soul-nurturing treasures for your blissful well-being.",
+  //   title:"LOVING YOURSELF MULTIPLIES FROM HERE",
+  // },];
   return (
   <> <div>
  
-  <CarouselElement images={images} />
+ <CarouselElement images={images} />
+ <br />
  
-  <Aban url={'/images/bodypos1.jpg'} description={"Immerse yourself in our ethereal haven, where self-care is an exquisite art. Discover Shop All's captivating collection of soul-nurturing treasures for your blissful well-being"} title={"LOVING YOURSELF MULTIPLIES FROM HERE"}/>
+  <Aban url={'/images/navimg1.jpg'} description={"Immerse yourself in our ethereal haven, where self-care is an exquisite art. Discover Shop All's captivating collection of soul-nurturing treasures for your blissful well-being"} title={"LOVING YOURSELF MULTIPLIES FROM HERE"}/>
   <br />
+  
   <ThreeImagesStack images={imagesStack} />
   <br />
  
@@ -87,7 +86,10 @@ const HomePage = () => {
   <ThreeImagesStack images={imagesStack2} />
   
   <br />
+ 
   <StandardImageList />
+  <br />
+ 
 </div>
   </>
   );

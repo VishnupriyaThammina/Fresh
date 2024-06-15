@@ -34,7 +34,7 @@ const Footer = () => {
        
         <Grid item xs={12} sm={6} md={6}>
           <Typography variant="body2" className={classes.copyRight}>
-            © {new Date().getFullYear()} Frontendshape. All Rights Reserved.
+            © {new Date().getFullYear()} Vishnupriya Thammina. All Rights Reserved.
           </Typography>
         </Grid>
       </Grid>

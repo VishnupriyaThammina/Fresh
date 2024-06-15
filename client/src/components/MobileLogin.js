@@ -1,47 +1,13 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate} from 'react-router-dom';
 import { Grid, TextField, Button } from '@mui/material';
 import login from "../images/login.jpg"
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import loginValidate from './loginValidate'; // Update the import path
 
 
 const MobileLogin = () =>{
-    const [formData, setFormData] = useState({
-       
-     
-        email: '',
-        password: '',
-      });
-    const navigate = useNavigate();
-    const [errors, setErrors] = useState({});
-     
-      const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-      };
-    
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        const formErrors = loginValidate(formData);
-    
-        if (Object.keys(formErrors).length > 0) {
-          setErrors(formErrors);
-        } else {
-          try {
-            const response = await axios.post('http://localhost:5000/register', formData);
-            console.log(response);
-            if (response.status === 201) {
-              navigate('/');
-            }
-          } catch (error) {
-            console.log(error);
-          }
-        }
-      };
-
+  
    
 return(
     <>
@@ -50,7 +16,7 @@ return(
   <Grid container direction="column">
 <Grid item container sx={{display:"flex",justifyContent:"center",alignItems:"center",backgroundColor:"#cedbd0",padding:"20px"}}>
 <Grid item sx={{}}  >
-  <form onSubmit={handleSubmit}  >
+  <form onSubmit={(e)=>{e.preventDefault()}}  >
   <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center">
                   <Grid item textAlign="center" >
                       <h1 sx={{color: "#434d43"}} >Login</h1>
@@ -63,9 +29,8 @@ return(
                         id="email"
                         type="email"
                         name="email"
-                        error={!!errors.email}
-                        helperText={errors.email}
-                        onChange={handleChange}
+                       
+                        
                         style={{ marginTop: 11 }}
                         InputProps={{ disableUnderline: true }}
                       />
@@ -77,9 +42,8 @@ return(
                         id="password"
                         type="password"
                         name="password"
-                        error={!!errors.password}
-  helperText={errors.password}
-                        onChange={handleChange}
+                        
+                       
                         style={{ marginTop: 11 }}
                         InputProps={{ disableUnderline: true }}
                       />
